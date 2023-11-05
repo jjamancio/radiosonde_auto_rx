@@ -688,21 +688,21 @@ def read_auto_rx_config(filename, no_sdr_test=False):
         # that this goes against the wishes of the radiosonde_auto_rx developers to not be part
         # of the bigger problem of APRS-IS congestion. 
 
-#        ALLOWED_APRS_SERVERS = ["radiosondy.info", "wettersonde.net", "localhost"]
-#        ALLOWED_APRS_PORTS = [14580, 14590]
-#
-#        if auto_rx_config["aprs_server"] not in ALLOWED_APRS_SERVERS:
-#            logging.warning(
-#                "Please do not upload to servers which forward to the wider APRS-IS network and cause network congestion. Switching to default server of radiosondy.info. If you believe this to be in error, please raise an issue at https://github.com/projecthorus/radiosonde_auto_rx/issues"
-#            )
-#            auto_rx_config["aprs_server"] = "radiosondy.info"
-#        
-#        if auto_rx_config["aprs_port"] not in ALLOWED_APRS_PORTS:
-#            logging.warning(
-#                "Please do not use APRS ports which forward data out to the wider APRS-IS network and cause network congestion. Switching to default port of 14590. If you believe this to be in error, please raise an issue at https://github.com/projecthorus/radiosonde_auto_rx/issues"
-#            )
-#            auto_rx_config["aprs_port"] = 14590
-#
+        ALLOWED_APRS_SERVERS = ["rotate.aprs2.net", "radiosondy.info", "wettersonde.net", "localhost"]
+        ALLOWED_APRS_PORTS = [14580, 14590]
+
+        if auto_rx_config["aprs_server"] not in ALLOWED_APRS_SERVERS:
+            logging.warning(
+                "Please do not upload to servers which forward to the wider APRS-IS network and cause network congestion. Switching to default server of radiosondy.info. If you believe this to be in error, please raise an issue at https://github.com/projecthorus/radiosonde_auto_rx/issues"
+            )
+            auto_rx_config["aprs_server"] = "rotate.aprs2.net"
+        
+        if auto_rx_config["aprs_port"] not in ALLOWED_APRS_PORTS:
+            logging.warning(
+                "Please do not use APRS ports which forward data out to the wider APRS-IS network and cause network congestion. Switching to default port of 14590. If you believe this to be in error, please raise an issue at https://github.com/projecthorus/radiosonde_auto_rx/issues"
+            )
+            auto_rx_config["aprs_port"] = 14580
+
 
         # 1.6.0 - New SDR options
         if not config.has_option("sdr", "sdr_type"):
